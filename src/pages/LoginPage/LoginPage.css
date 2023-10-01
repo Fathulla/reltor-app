@@ -1,0 +1,12 @@
+.loginPage{
+    margin: 30vh auto;
+    background-color: rgb(234, 234, 234);
+    border-radius: 30px;
+    padding: 50px 30px;
+    width: fit-content;
+} 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
