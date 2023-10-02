@@ -1,0 +1,22 @@
+.subHeader{
+    height: 87vh;
+    color: white;
+    background-image: url('../../assets/img/House-img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+.subHeader nav a {
+    color: white
+}
+.autocomplete-item{
+   width: 40vw;
+   background-color: white;
+   border-radius: 30px;
+}

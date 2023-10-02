@@ -1,6 +1,7 @@
 .loginPage{
     margin: 30vh auto;
-    background-color: rgb(234, 234, 234);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 5px lightgray;
     border-radius: 30px;
     padding: 50px 30px;
     width: fit-content;
