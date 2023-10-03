@@ -1,13 +1,13 @@
 import { Autocomplete, TextField } from "@mui/material";
 import React from "react";
-import './AppSubheader.css'
+import './AppMain.css'
 
 const searchOptions = [
   { title: "West Palm Beach, FL" },
   { title: "Boca Raton, FL" },
 ];
 
-export const AppSubheader = () => {
+export const AppMain = () => {
   return (
     <div className="subHeader">
       <h1>

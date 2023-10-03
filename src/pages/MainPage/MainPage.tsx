@@ -2,17 +2,16 @@ import React from "react";
 import "./MainPage.css";
 import { AppCard } from "../../components/AppCard/AppCard";
 import { AppNavigation } from "../../components/AppNavigation/AppNavigation";
-import { AppSubheader } from "../../components/AppSubheader/AppSubheader";
-
-
+import { AppMain } from "../../components/AppMain/AppMain";
+import { AppHeader } from "../../components/AppHeader/AppHeader";
 
 export const MainPage = () => {
   return (
     <>
-      <AppNavigation/>
-      <AppSubheader/>
+      <AppNavigation />
+      <AppMain />
       <section className="homesList">
-        <h2>Browse homes in West Palm Beach, FL</h2>
+        <AppHeader type="h2" headerText="Browse homes in West Palm Beach, FL" />
         <div className="cardsContainer">
           <AppCard />
           <AppCard />
