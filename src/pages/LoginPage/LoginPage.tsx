@@ -5,16 +5,14 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 type FormData = {
-  firstName: string;
-  age: number;
+  username: string;
+  password: string;
 };
 
-const schema = yup
-  .object({
-    firstName: yup.string().required(),
-    age: yup.number().positive().integer().required(),
-  })
-  .required();
+const schema = yup.object({
+  username: yup.string().required(),
+  password: yup.string().required(),
+});
 
 const FormContainer = styled.form`
   display: flex;
@@ -59,17 +57,20 @@ export const LoginPage = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    console.log(data);
-    navigate("/main");
+    if (data.username === "fathulla" && data.password === "1234") {
+      navigate("/next-page");
+    } else {
+      alert("Неверный логин или пароль");
+    }
   };
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
-      <Input {...register("firstName")} />
-      <ErrorMessage>{errors.firstName?.message}</ErrorMessage>
+      <Input {...register("username")} placeholder="Username" />
+      <ErrorMessage>{errors.username?.message}</ErrorMessage>
 
-      <Input {...register("age")} />
-      <ErrorMessage>{errors.age?.message}</ErrorMessage>
+      <Input {...register("password")} type="password" placeholder="Password" />
+      <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
       <SubmitButton type="submit" value="Submit" />
     </FormContainer>
