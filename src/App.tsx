@@ -1,5 +1,5 @@
 import React from "react";
-import { SettingsPage } from "./pages/SettingsPage/SettingsPage.tsx";
+import { AccountPage } from "./pages/AccountPage/AccountPage.tsx";
 import { MainPage } from "./pages/MainPage/MainPage.tsx";
 import { LoginPage } from "./pages/LoginPage/LoginPage.tsx";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage.tsx";
@@ -19,8 +19,8 @@ const App: React.FC = () => {
       element: <MainPage />,
     },
     {
-      path: "/settings",
-      element: <SettingsPage />,
+      path: "/account",
+      element: <AccountPage />,
     },
     {
       path: "*",

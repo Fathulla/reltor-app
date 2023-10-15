@@ -1,32 +1,36 @@
 import React from "react";
 import "./AppNavigation.css";
+import { Link } from "react-router-dom";
 
 export const AppNavigation = () => {
   return (
     <header>
-      <div className="headerLogo">REALTOR APP</div>
+      <Link to={'main'}><div className="headerLogo">REALTOR APP</div></Link>
       <nav>
-        <a className="navItem" href="">
+        <Link to={'#'} className="navItem">
           Buy
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Sell
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Rent
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Mortgage
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Find Realtors
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           My Home
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           News & Insights
-        </a>
+        </Link>
+        <Link to={'/account'} className="navItem">
+          Account
+        </Link>
       </nav>
     </header>
   );

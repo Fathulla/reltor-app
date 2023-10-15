@@ -1,6 +1,8 @@
 import { Autocomplete, TextField } from "@mui/material";
 import React from "react";
 import './AppMain.css'
+import { AppHeader } from "../AppHeader/AppHeader";
+import { Link } from "react-router-dom";
 
 const searchOptions = [
   { title: "West Palm Beach, FL" },
@@ -10,28 +12,26 @@ const searchOptions = [
 export const AppMain = () => {
   return (
     <div className="subHeader">
-      <h1>
-        The #1 site real estate <br /> professionals trust*
-      </h1>
+      <AppHeader headerText="The #1 site real estate professionals trust*" type="h1"/>
       <nav>
-        <a className="navItem" href="">
+        <Link to={'#'} className="navItem">
           Buy
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Rent
-        </a>
-        <a className="navItem" href="">
+        </Link>  
+        <Link to={'#'} className="navItem">
           Sell
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Pre-approval
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Just sold
-        </a>
-        <a className="navItem" href="">
+        </Link>
+        <Link to={'#'} className="navItem">
           Home value
-        </a>
+        </Link>
       </nav>
       <Autocomplete
         className="autocomplete-item"
