@@ -58,7 +58,9 @@ export const LoginPage = () => {
 
   const onSubmit = (data: FormData) => {
     if (data.username === "fathulla" && data.password === "1234") {
-      navigate("/next-page");
+      localStorage.setItem("username", data.username);
+      localStorage.setItem("password", data.password);
+      navigate("/profile");
     } else {
       alert("Неверный логин или пароль");
     }
