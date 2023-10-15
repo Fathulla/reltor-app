@@ -1,4 +1,4 @@
 export interface ILoginPage {
-    username: string;
-    password: string;
+    username: 'John'
+    password: '12345678'
 }
