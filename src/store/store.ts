@@ -1,10 +1,32 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import { autocompleteApi } from './api/autocompleteApi'
+import userSlice from './userSlice';
+import { mortgageApi } from './api/mortgegeApi';
+import { financeRateApi } from './api/finanseRateApi';
+import { agentsApi } from './api/agentsApi';
+import { propertiesApi } from './api/propertiesApi';
+
+
 
 export const store = configureStore({
-  reducer: {},
-})
+  reducer: {
+    userSlice,
+    [autocompleteApi.reducerPath]: autocompleteApi.reducer,
+    [mortgageApi.reducerPath]: mortgageApi.reducer,
+    [financeRateApi.reducerPath]: financeRateApi.reducer,
+    [agentsApi.reducerPath]: agentsApi.reducer,
+    [propertiesApi.reducerPath]: propertiesApi.reducer,
+    // Другие редюсеры вашего приложения
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([
+      autocompleteApi.middleware,
+      mortgageApi.middleware,
+      financeRateApi.middleware,
+      agentsApi.middleware,
+      propertiesApi.middleware,
+    ]),
+});
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.getState
