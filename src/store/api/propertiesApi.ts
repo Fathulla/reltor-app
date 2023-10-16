@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '../../utils/baseQuery';
 
 const propertiesList = '/properties/v2'
@@ -32,9 +32,9 @@ export const propertiesApi = createApi({
 })
 
 export const {
-    getListSold,
-    getListRent,
-    getListSale,
-    getListMls,
-    getDetail,
-} = propertiesApi.endpoints
+    useGetListSoldQuery,
+    useGetListRentQuery,
+    useGetListSaleQuery,
+    useGetListMlsQuery,
+    useGetDetailQuery,
+} = propertiesApi

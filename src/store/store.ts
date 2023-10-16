@@ -18,7 +18,7 @@ export const store = configureStore({
     [propertiesApi.reducerPath]: propertiesApi.reducer,
     // Другие редюсеры вашего приложения
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat([
       autocompleteApi.middleware,
       mortgageApi.middleware,

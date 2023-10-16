@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '../../utils/baseQuery';
 
 export const agentsApi = createApi({
@@ -12,5 +12,5 @@ export const agentsApi = createApi({
 });
 
 export const {
-    getAgentsList,
-  } = agentsApi.endpoints;
+    useGetAgentsListQuery,
+  } = agentsApi

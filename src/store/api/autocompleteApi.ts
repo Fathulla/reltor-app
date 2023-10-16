@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '../../utils/baseQuery';
 
 export const autocompleteApi = createApi({
@@ -12,5 +12,5 @@ export const autocompleteApi = createApi({
 });
 
 export const {
-    getAutocomplete,
-  } = autocompleteApi.endpoints;
+    useGetAutocompleteQuery,
+  } = autocompleteApi
