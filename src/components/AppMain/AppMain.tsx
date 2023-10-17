@@ -34,6 +34,7 @@ export const AppMain = () => {
         </Link>
       </nav>
       <Autocomplete
+      
         className="autocomplete-item"
         freeSolo
         id="free-solo-2-demo"

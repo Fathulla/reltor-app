@@ -1,12 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { autocompleteApi } from './api/autocompleteApi'
-import userSlice from './userSlice';
-import { mortgageApi } from './api/mortgegeApi';
-import { financeRateApi } from './api/finanseRateApi';
-import { agentsApi } from './api/agentsApi';
-import { propertiesApi } from './api/propertiesApi';
-
-
+import { configureStore } from "@reduxjs/toolkit";
+import { autocompleteApi } from "./api/autocompleteApi";
+import userSlice from "./userSlice";
+import { mortgageApi } from "./api/mortgageApi";
+import { financeRateApi } from "./api/financeRateApi";
+import { agentsApi } from "./api/agentsApi";
+import { propertiesApi } from "./api/propertiesApi";
 
 export const store = configureStore({
   reducer: {
@@ -18,7 +16,7 @@ export const store = configureStore({
     [propertiesApi.reducerPath]: propertiesApi.reducer,
     // Другие редюсеры вашего приложения
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([
       autocompleteApi.middleware,
       mortgageApi.middleware,
@@ -28,5 +26,5 @@ export const store = configureStore({
     ]),
 });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.getState
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.getState;
