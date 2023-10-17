@@ -1,20 +1,32 @@
-export const TestComponent = () => {
-  // const { data, error, isLoading } = useGetAutocompleteQuery('search query');
+import { useGetListingsForSaleQuery } from '../store/api/testApi';
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
+export const MyComponent = () => {
+  const { data, error, isLoading } = useGetListingsForSaleQuery({
+    location: 'New York',
+    property_type: 'single_family',
+  });
 
-  // if (error) {
-  //   return <div>Error occurred while fetching data: {error.message}</div>;
-  // }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  // Используйте полученные данные в вашем компоненте
-  return (
-    <div>
-      {/* {data && data.results.map((item) => (
-        <div key={item.id}>{item.name}</div>
-      ))} */}
-    </div>
-  );
+  if (error) {
+    // Проверка типа ошибки
+    if ('status' in error && 'data' in error) {
+      // Обработка ошибки FetchBaseQueryError
+      return <div>Error: {error.status}</div>;
+    }
+
+    // Обработка ошибки SerializedError
+    return <div>Error: {error?.data?.message}</div>;
+  }
+
+  if (data) {
+    // Обработка данных
+    const listings = data.results;
+    // Дальнейшая обработка данных...
+    return <div>Listings: {listings.length}</div>;
+  }
+
+  return null;
 };
