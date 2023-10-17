@@ -1,8 +1,14 @@
 header{
     background-color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     height: 100px;
     padding: 0 30px;
+    background: rgba(24, 136, 255, 0.5); 
+    position: fixed;
+    width: 100vw;
+}
+.navItem{
+    color: white;
 }

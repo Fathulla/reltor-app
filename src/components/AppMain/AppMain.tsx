@@ -20,21 +20,8 @@ export const AppMain = () => {
         <Link to={'#'} className="navItem">
           Rent
         </Link>  
-        <Link to={'#'} className="navItem">
-          Sell
-        </Link>
-        <Link to={'#'} className="navItem">
-          Pre-approval
-        </Link>
-        <Link to={'#'} className="navItem">
-          Just sold
-        </Link>
-        <Link to={'#'} className="navItem">
-          Home value
-        </Link>
       </nav>
       <Autocomplete
-      
         className="autocomplete-item"
         freeSolo
         id="free-solo-2-demo"

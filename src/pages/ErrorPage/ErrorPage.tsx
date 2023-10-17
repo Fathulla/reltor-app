@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 export const ErrorPage = () => {
     return (
-        <div>
-            <h1>CHTO SKAZAL GAGRIN KOGDA UVIDEL ZEMLYU?</h1>
-            <h1>ZEMLYA KRUGLAYA</h1>
-            <h1>KAK POYMAYU SRAZU EJEEEEEE</h1>
-            <Link to={'./main'}><button>go main</button></Link>
+        <div className='errorPage'>
+            <h1>Что сказал Гагарин когда увидел землю?</h1>
+            <h1>ЗЕМЛЯ КРУГЛАЯ</h1>
+            <h1>Как поймаю сразу есть жееее</h1>
+            <Link to={'./main'}><button className='btn'>go main</button></Link>
         </div>
     );
 };

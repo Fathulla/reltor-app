@@ -1,7 +1,7 @@
 .subHeader{
     height: 87vh;
     color: white;
-    background-image: url('../../assets/img/House-img.jpg');
+    background-image: url('https://media.istockphoto.com/id/155370592/photo/double-fronted-house-at-dusk.jpg?s=612x612&w=0&k=20&c=SwzP0IJdXWzyrxAY7CwT4EnGe4CiAOq52tl5q-PGBoo=');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -13,10 +13,9 @@
     gap: 50px;
 }
 .subHeader nav a {
-    color: white
+    color: white;
 }
 .autocomplete-item{
    width: 40vw;
    background-color: white;
-   border-radius: 30px;
 }

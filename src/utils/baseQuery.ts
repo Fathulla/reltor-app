@@ -1,1 +1,1 @@
-export const baseQuery = 'https://realtor.p.rapidapi.com'
+export const baseQuery = 'https://realtor16.p.rapidapi.com'
