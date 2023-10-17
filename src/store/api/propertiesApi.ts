@@ -17,7 +17,7 @@ const propertiesList = '/properties/v2'
 //         getMedia: builder.query({
 //             query: (id) => `/titletest/${id}`,
 //             // or
-//             query: (id) => ({ url: `/titletest/${id}` }),
+//             query: (id) => ({ url: `/ti;tletest/${id}` }),
 //             // or
 //             query: ({ title, id }) => `/${title}/${id}`,
 //         })
@@ -28,7 +28,7 @@ export const propertiesApi = createApi({
     reducerPath: 'propertiesApi',
     baseQuery: fetchBaseQuery({
         baseUrl: baseQuery, prepareHeaders: (headers) => {
-            headers.set("x-rapidapi-key", "meowmeowmeow")
+            headers.set("x-rapidapi-key", "63abcb1692msha43e850706d9ebdp137627jsn34dd3129aecb")
             headers.set("x-rapidapi-host", "realtor.p.rapidapi.com")
             return headers
         }
