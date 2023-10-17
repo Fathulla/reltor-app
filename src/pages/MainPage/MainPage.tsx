@@ -2,14 +2,14 @@ import { AppCard } from "../../components/AppCard/AppCard";
 import { AppHeader } from "../../components/AppHeader/AppHeader";
 import { AppMain } from "../../components/AppMain/AppMain";
 import { AppNavigation } from "../../components/AppNavigation/AppNavigation";
-import { useGetListSaleQuery } from "../../store/api/propertiesApi";
+import {useGetSimilarHomesQuery } from "../../store/api/propertiesApi";
 import "./MainPage.css";
 
 export const MainPage = () => {
-  const { data, isLoading, error } = useGetListSaleQuery({
-    city: 'California City',
-    state_code: '93505',
-    limit: 1,
+  const { data, isLoading, error } = useGetSimilarHomesQuery({
+    status: 'for_sale',
+    property_id: '93505',
+    limit: 10,
   });
   if (data) {
     console.log("DATA: ", data);

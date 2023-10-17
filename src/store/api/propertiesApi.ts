@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from '../../utils/baseQuery';
 
-interface IListSalePayload {
+/* interface IListSalePayload {
     city: string
     state_code: string
     limit: number
 }
 
-interface IListSale extends IListSalePayload { }
+interface IListSale extends IListSalePayload { } */
 
-const propertiesList = '/properties/v2'
+const propertiesList = '/properties/v3'
 
 export const propertiesApi = createApi({
     reducerPath: 'propertiesApi',
@@ -21,43 +21,23 @@ export const propertiesApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getListSold: builder.query({
-            query: () => `${propertiesList}/list-sold`
-        }),
-        getListRent: builder.query({
-            query: () => `${propertiesList}/list-for-rent`
-        }),
-        getListSale: builder.query<IListSalePayload, IListSale>({
-            query: ({ city, state_code, limit }) => ({
-                url: `${propertiesList}/list-for-sale`,
-                params: {
-                    limit,
-                    city,
-                    state_code,                    
-                }
-            })
-        }),
-        getListMls: builder.query({
-            query: () => `${propertiesList}/list-by-mls`
-        }),
         getDetail: builder.query({
             query: () => `${propertiesList}/detail`
         }),
         getSimilarHomes: builder.query({
-            query: () => `${propertiesList}/list-similar-homes`
-        }),
-        getSimilarRentalHomes: builder.query({
-            query: () => `${propertiesList}/list-similar-rental-homes`
+            query: ({property_id,limit,status}) => ({
+                url: `${propertiesList}/list-similar-homes`,
+                params: {
+                    property_id,
+                    limit,
+                    status,
+                }
+            })
         }),
     })
 })
 
 export const {
-    useGetListSoldQuery,
-    useGetListRentQuery,
-    useGetListSaleQuery,
-    useGetListMlsQuery,
     useGetDetailQuery,
     useGetSimilarHomesQuery,
-    useGetSimilarRentalHomesQuery,
 } = propertiesApi;

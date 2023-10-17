@@ -8,7 +8,7 @@ export const autocompleteApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: baseQuery }),
   endpoints: (builder) => ({
     getAutocomplete: builder.query({
-      query: ({input}) => `/locations/auto-complete${input}`
+      query: () => `locations/v2/auto-complete`
     })
   })
 });
