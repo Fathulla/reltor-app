@@ -1,15 +1,16 @@
 import React from 'react';
-import './ErrorPage.css'
 import { Link } from 'react-router-dom';
+import { AppHeader } from '../../components/AppHeader/AppHeader';
+import { SCErrorBtn, SCErrorPage } from './ErrorPage.styled';
 
 export const ErrorPage = () => {
     return (
-        <div className='errorPage'>
-            <h1>Что сказал Гагарин когда увидел землю?</h1>
-            <h1>ЗЕМЛЯ КРУГЛАЯ</h1>
-            <h1>Как поймаю сразу есть жееее</h1>
-            <Link to={'./main'}><button className='btn'>go main</button></Link>
-        </div>
+        <SCErrorPage>
+            <AppHeader headerText='Что сказал Гагарин когда увидел землю?' type='h1'/>
+            <AppHeader headerText='ЗЕМЛЯ КРУГЛАЯ' type='h1'/>
+            <AppHeader headerText='Как поймаю сразу есть жееее' type='h1'/>
+            <Link to={'/main'}><SCErrorBtn className='btn'>go main</SCErrorBtn></Link>
+        </SCErrorPage>
     );
 };
 

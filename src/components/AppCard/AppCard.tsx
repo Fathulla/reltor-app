@@ -1,10 +1,15 @@
 import React from "react";
 import "./AppCard.css";
+import { Link } from "react-router-dom";
 
-export const AppCard = () => {
+interface AppCardProps {
+  home: string; //TODO Замените HomeData на соответствующий тип данных для дома
+}
+
+export const AppCard = ({home}: AppCardProps) => {
   return (
     <div className="cardItem">
-      <a href="">
+      <Link to=''>
         <div className="cardImg">
           <div className="cardImgTxt">New - 3 hours ago</div>
         </div>
@@ -16,7 +21,7 @@ export const AppCard = () => {
             800 E Camino Real Unit 3100 Boca Raton, FL 33432
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
