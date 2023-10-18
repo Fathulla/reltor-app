@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SCHomeList = styled.section`
-  display: flex;padding: 50px 100px;
+  padding: 50px 100px;
 `
 
 export const SCCardsContainer = styled.div`

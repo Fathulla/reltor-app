@@ -1,8 +1,24 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery, xHost, xKey } from '../../utils/baseQuery';
 
+interface ISimilarHomesPayload {
+    status: 'for_sale'|'ready_to_build'|'for_rent'|'sold'|'off_market'|'other'|'new_community'
+    limit: number
+    property_id: string
+    baths: number
+    beds: number
+    sqft: number
+    href: string
+    city: string
+    line: string
+    postal_code: string
+    state_code: string
+    list_price: number
+    date: string
+}
+
 interface IForRentPayload {
-    location: string;
+    property_id: string
     limit: number
 }
 
@@ -27,22 +43,23 @@ export const propertiesApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getForSale: builder.query<IProperty, IForRentPayload>({
+        getSimilarHomes: builder.query<IProperty, ISimilarHomesPayload>({
             //! Returning by 50 items
-            query: ({ location, limit, }) => ({
-                url: '/forsale',
+            query: ({ property_id, limit, status}) => ({
+                url: '/properties/list-similar-homes',
                 params: {
-                    location,
+                    property_id,
                     limit,
+                    status,
                 }
             })
         }),
         getForRent: builder.query<IProperty, IForRentPayload>({
             //! Returning by 50 items
-            query: ({ location, limit }) => ({
+            query: ({ limit,property_id }) => ({
                 url: '/forrent',
                 params: {
-                    location,
+                    property_id,
                     limit
                 }
             })
@@ -50,7 +67,7 @@ export const propertiesApi = createApi({
         getDetails: builder.query<IDetailsResponse, IDetailsPayload>({
             //! Returning by 10 items
             query: ({ property_id }) => ({
-                url: '/property',
+                url: '/properties/detail',
                 params: {
                     property_id,
                 }
@@ -60,7 +77,7 @@ export const propertiesApi = createApi({
 })
 
 export const {
-    useGetForSaleQuery,
+    useGetSimilarHomesQuery,
     useGetForRentQuery,
     useGetDetailsQuery,
 } = propertiesApi;

@@ -1,27 +1,73 @@
 import React from "react";
-import "./AppCard.css";
 import { Link } from "react-router-dom";
+import { SCCardImg, SCCardInfo, SCCardItem } from "./AppCard.styled";
+
 
 interface AppCardProps {
-  home: string; //TODO Замените HomeData на соответствующий тип данных для дома
+  // descriptions:
+  baths: number;
+  halfBaths: null;
+  beds: number;
+  sqft: number;
+  lotSqft: null;
+
+  // estimates:
+  date: string;
+  estimate: number;
+
+  list_price: number;
+  listing_id: string;
+
+  // location > address:
+  city: string;
+  line: string;
+  postal_code: string;
+  state_code: string;
+
+  permalink: string;
+
+  // primary_photo:
+  href: string;
+
+  property_id: string;
+
+  status: string;
 }
 
-export const AppCard = ({home}: AppCardProps) => {
+export const AppCard = ({
+  baths,
+  beds,
+  sqft,
+  href,
+  city,
+  line,
+  postal_code,
+  state_code,
+  status,
+  list_price,
+  date,
+}: AppCardProps) => {
   return (
-    <div className="cardItem">
-      <Link to=''>
-        <div className="cardImg">
-          <div className="cardImgTxt">New - 3 hours ago</div>
-        </div>
-        <div className="cardInfo">
-          <div className="ForWhat">For Sale</div>
-          <div className="prise">$556,000</div>
-          <div className="houseInfo">2 bed 2 bath 1 300 sqft</div>
-          <div className="houseLocation">
-            800 E Camino Real Unit 3100 Boca Raton, FL 33432
+    <SCCardItem>
+      <Link to="">
+        <SCCardImg>
+          <img src={href} alt="House Photo" />
+          <div className="cardImgTxt">{date}</div>
+        </SCCardImg>
+        <SCCardInfo>
+          <div className="ForWhat">{status}</div>
+          <div className="prise">Prise:${list_price}</div>
+          <div className="houseInfo">
+            House Info: <br />  
+            Beds: {beds} <br /> 
+            Baths: {baths} <br />
+            Sqft: {sqft} 
           </div>
-        </div>
+          <div className="houseLocation">
+            Location: {city}, {line}, {state_code} {postal_code}
+          </div>
+        </SCCardInfo>
       </Link>
-    </div>
+    </SCCardItem>
   );
 };
