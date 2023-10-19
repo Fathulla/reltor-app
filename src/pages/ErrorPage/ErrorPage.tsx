@@ -9,7 +9,7 @@ export const ErrorPage = () => {
             <AppHeader headerText='Что сказал Гагарин когда увидел землю?' type='h1'/>
             <AppHeader headerText='ЗЕМЛЯ КРУГЛАЯ' type='h1'/>
             <AppHeader headerText='Как поймаю сразу есть жееее' type='h1'/>
-            <Link to={'/main'}><SCErrorBtn className='btn'>go main</SCErrorBtn></Link>
+            <Link to={'/thanks'}><SCErrorBtn className='btn'>Далее</SCErrorBtn></Link>
         </SCErrorPage>
     );
 };

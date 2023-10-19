@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import { store } from "./store/store.ts";
 import { Provider } from "react-redux";
+import ThankYouPage from "./pages/ThanksPage/ThanksPage.tsx";
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const App: React.FC = () => {
     {
       path: "*",
       element: <ErrorPage />,
+    },
+    {
+      path: "/thanks",
+      element: <ThankYouPage />,
     },
   ]);
   return (

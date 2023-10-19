@@ -30,7 +30,7 @@ export const LoginPage = () => {
     if (data.username === "fathulla" && data.password === "1234") {
       localStorage.setItem("username", data.username);
       localStorage.setItem("password", data.password);
-      navigate("/profile");
+      navigate("/main");
     } else {
       alert("Неверный логин или пароль");
     }

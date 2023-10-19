@@ -39,7 +39,7 @@ export const AccountPage = () => {
             checkedIcon={false}
             uncheckedIcon={false}
           /> */}
-          <Link to={"/"}>Home</Link>
+          <Link to={"/main"}>Home</Link>
         </ProfileCard>
       </ProfileContainer>
     </>

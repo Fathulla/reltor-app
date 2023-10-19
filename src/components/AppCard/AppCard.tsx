@@ -2,14 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SCCardImg, SCCardInfo, SCCardItem } from "./AppCard.styled";
 
-
 interface AppCardProps {
   // descriptions:
   baths: number;
-  halfBaths: null;
   beds: number;
   sqft: number;
-  lotSqft: null;
 
   // estimates:
   date: string;
@@ -27,7 +24,7 @@ interface AppCardProps {
   permalink: string;
 
   // primary_photo:
-  href: string;
+  href: any;
 
   property_id: string;
 
@@ -49,19 +46,19 @@ export const AppCard = ({
 }: AppCardProps) => {
   return (
     <SCCardItem>
-      <Link to="">
+      <Link to="/gagarin">
         <SCCardImg>
-          <img src={href} alt="House Photo" />
+          <img src={href.href} alt="House Photo" />
           <div className="cardImgTxt">{date}</div>
         </SCCardImg>
         <SCCardInfo>
           <div className="ForWhat">{status}</div>
-          <div className="prise">Prise:${list_price}</div>
+          <div className="prise">Prise: ${list_price}</div>
           <div className="houseInfo">
-            House Info: <br />  
-            Beds: {beds} <br /> 
+            House Info: <br />
+            Beds: {beds} <br />
             Baths: {baths} <br />
-            Sqft: {sqft} 
+            Sqft: {sqft}
           </div>
           <div className="houseLocation">
             Location: {city}, {line}, {state_code} {postal_code}

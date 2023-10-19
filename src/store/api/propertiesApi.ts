@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery, xHost, xKey } from '../../utils/baseQuery';
 
-interface ISimilarHomesPayload {
+/* interface ISimilarHomesPayload {
     status: 'for_sale'|'ready_to_build'|'for_rent'|'sold'|'off_market'|'other'|'new_community'
     limit: number
     property_id: string
@@ -15,17 +15,19 @@ interface ISimilarHomesPayload {
     state_code: string
     list_price: number
     date: string
-}
+} */
 
 interface IForRentPayload {
     property_id: string
     limit: number
+    location: string
+    type: 'single_family'
 }
 
 type IProperty = []
 
-/* interface IForRentResponse extends IForRentPayload { }
- */
+interface IForRentResponse extends IForRentPayload { }
+
 interface IDetailsPayload {
     property_id: string
     limit: number
@@ -43,20 +45,21 @@ export const propertiesApi = createApi({
         }
     }),
     endpoints: (builder) => ({
-        getSimilarHomes: builder.query<IProperty, ISimilarHomesPayload>({
+        getForSale: builder.query<IForRentResponse, IForRentPayload>({
             //! Returning by 50 items
-            query: ({ property_id, limit, status}) => ({
-                url: '/properties/list-similar-homes',
+            query: ({ property_id, limit, location, type }) => ({
+                url: '/forsale',
                 params: {
                     property_id,
                     limit,
-                    status,
+                    location,
+                    type,
                 }
             })
         }),
         getForRent: builder.query<IProperty, IForRentPayload>({
             //! Returning by 50 items
-            query: ({ limit,property_id }) => ({
+            query: ({ limit, property_id }) => ({
                 url: '/forrent',
                 params: {
                     property_id,
@@ -77,7 +80,7 @@ export const propertiesApi = createApi({
 })
 
 export const {
-    useGetSimilarHomesQuery,
+    useGetForSaleQuery,
     useGetForRentQuery,
     useGetDetailsQuery,
 } = propertiesApi;
