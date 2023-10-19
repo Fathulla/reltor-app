@@ -22,6 +22,7 @@ interface IForRentPayload {
     limit: number
     location: string
     type: 'single_family'
+
 }
 
 type IProperty = []

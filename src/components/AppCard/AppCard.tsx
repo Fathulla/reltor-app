@@ -55,7 +55,6 @@ export const AppCard = ({
           <div className="ForWhat">{status}</div>
           <div className="prise">Prise: ${list_price}</div>
           <div className="houseInfo">
-            House Info: <br />
             Beds: {beds} <br />
             Baths: {baths} <br />
             Sqft: {sqft}

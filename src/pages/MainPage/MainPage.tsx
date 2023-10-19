@@ -1,3 +1,4 @@
+import { object } from "yup";
 import { AppCard } from "../../components/AppCard/AppCard";
 import { AppHeader } from "../../components/AppHeader/AppHeader";
 import { AppMain } from "../../components/AppMain/AppMain";
@@ -6,20 +7,22 @@ import { useGetForSaleQuery } from "../../store/api/propertiesApi";
 import { SCCardsContainer, SCHomeList } from "./MainPage.styled";
 
 interface IData {
-  baths: any;
-  beds: any;
-  sqft: any;
-  href: any;
-  city: any;
-  line: any;
-  postal_code: any;
-  state_code: any;
-  status: any;
-  list_price: any;
-  date: any;
-  permalink: any;
-  property_id: any;
-  primary_photo: any;
+  location: object;
+  description: object;
+  baths: number;
+  beds: number; 
+  sqft: number;
+  href: string;
+  city: string;
+  line: string;
+  postal_code: string;
+  state_code: string;
+  status: string;
+  list_price: number;
+  date: string;
+  permalink: string;
+  property_id: string;
+  primary_photo: string;
 }
 
 export const MainPage = () => {
@@ -34,7 +37,7 @@ export const MainPage = () => {
     console.log("DATA: ", data);
   }
 
-  const homes: IData[] = data?.home_search?.results;
+  const homes: IData[] = data?.home_search.results;
 
   return (
     <>
@@ -49,19 +52,21 @@ export const MainPage = () => {
             homes.map((h: IData) => (
               <AppCard
                 key={h.property_id}
-                baths={h.baths}
-                beds={h.beds}
-                sqft={h.sqft}
+                baths={h.description.baths}
+                beds={h.description.beds}
+                sqft={h.description.lot_sqft}
                 href={h.primary_photo}
-                city={h.city}
-                line={h.line}
-                postal_code={h.postal_code}
-                state_code={h.state_code}
+                city={h.location.address.city}
+                line={h.location.address.line}
+                postal_code={h.location.address.postal_code}
+                state_code={h.location.address.state_code}
                 status={h.status}
                 list_price={h.list_price}
                 date={h.date}
                 permalink={h.permalink}
                 property_id={h.property_id}
+                estimate={0}
+                listing_id={""}
               />
             ))}
           {/* {data && (
