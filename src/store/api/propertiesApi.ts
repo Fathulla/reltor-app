@@ -1,22 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseQuery, xHost, xKey } from '../../utils/baseQuery';
 
-/* interface ISimilarHomesPayload {
-    status: 'for_sale'|'ready_to_build'|'for_rent'|'sold'|'off_market'|'other'|'new_community'
-    limit: number
-    property_id: string
-    baths: number
-    beds: number
-    sqft: number
-    href: string
-    city: string
-    line: string
-    postal_code: string
-    state_code: string
-    list_price: number
-    date: string
-} */
-
 interface IForRentPayload {
     property_id: string
     limit: number

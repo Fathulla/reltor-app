@@ -1,4 +1,3 @@
-import { object } from "yup";
 import { AppCard } from "../../components/AppCard/AppCard";
 import { AppHeader } from "../../components/AppHeader/AppHeader";
 import { AppMain } from "../../components/AppMain/AppMain";
@@ -7,10 +6,10 @@ import { useGetForSaleQuery } from "../../store/api/propertiesApi";
 import { SCCardsContainer, SCHomeList } from "./MainPage.styled";
 
 interface IData {
-  location: object;
-  description: object;
+  location: any;
+  description: any;
   baths: number;
-  beds: number; 
+  beds: number;
   sqft: number;
   href: string;
   city: string;
@@ -69,48 +68,6 @@ export const MainPage = () => {
                 listing_id={""}
               />
             ))}
-          {/* {data && (
-            <AppCard
-              href={data.home_search.results.map(
-                (item) => item.primary_photo.href
-              )}
-              date={data.home_search.results.map((item) => item.list_date.date)}
-              status={data.home_search.results.map(
-                (item) => item.status)}
-              list_price={data.home_search.results.map(
-                (item) => item.list_price
-              )}
-              beds={data.home_search.results.map(
-                (item) => item.description.beds
-              )}
-              baths={data.home_search.results.map(
-                (item) => item.description.baths
-              )}
-              sqft={data.home_search.results.map(
-                (item) => item.description.lot_sqft
-              )}
-              city={data.home_search.results.map((item) => item.location.address.city)}
-              line={data.home_search.results.map(
-                (item) => item.location.address.line
-              )}
-              state_code={data.home_search.results.map(
-                (item) => item.location.address.state_code
-              )}
-              postal_code={data.home_search.results.map(
-                (item) => item.location.address.postal_code
-              )}
-              estimate={0}
-              listing_id={data.home_search.results.map(
-                (item) => item.listing_id
-              )}
-              permalink={data.home_search.results.map(
-                (item) => item.other_listings.permalink
-              )}
-              property_id={data.home_search.results.map(
-                (item) => item.property_id
-              )}
-            />
-          )} */}
         </SCCardsContainer>
         <div className="favourites">
           <AppHeader headerText="Favourites" type="h2" />

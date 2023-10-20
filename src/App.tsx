@@ -1,7 +1,7 @@
 import React from "react";
 import { AccountPage } from "./pages/AccountPage/AccountPage.tsx";
 import { MainPage } from "./pages/MainPage/MainPage.tsx";
-import { LoginPage } from "./pages/LoginPage/LoginPage.tsx";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { ErrorPage } from "./pages/ErrorPage/ErrorPage.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
