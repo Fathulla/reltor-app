@@ -3,7 +3,7 @@ import { IonIcon } from "@ionic/react";
 import "./GlassLoginForm.css";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const FormSchema = yup.object({
 });
 
 export const GlassLoginForm = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const { register, handleSubmit } = useForm<FormData>({
     resolver: yupResolver(FormSchema),
@@ -29,7 +29,7 @@ export const GlassLoginForm = () => {
     if (data.username === "fathulla" && data.password === "1234") {
       localStorage.setItem("username", data.username);
       localStorage.setItem("password", data.password);
-      // navigate('#path')
+      navigate('/main')
     } else {
       alert("наверный логин и пароль");
     }
@@ -50,9 +50,10 @@ export const GlassLoginForm = () => {
               <input type="password" required {...register("password")} />
               <label htmlFor="">Password</label>
             </div>
-            <Link to={'/main'}><button type="submit" value="Submit">
+            {/* <Link to={'/main'}></Link> */}
+            <button type="submit" value="Submit">
               Log in
-            </button></Link>
+            </button>
             <div className="bottom">
               <div className="left">
                 <input type="checkbox" id="check" />

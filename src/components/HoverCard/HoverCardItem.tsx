@@ -40,7 +40,7 @@ export const HoverCardItem = ({
           className="news-card__image"
         />
         <div className="news-card__text-wrapper">
-          <h2 className="news-card__title">{status}</h2>
+          <h2 className="news-card__title">{city}, {line}</h2>
           <div className="news-card__post-date">{date}</div>
           <div className="news-card__details-wrapper">
             <p className="news-card__excerpt">

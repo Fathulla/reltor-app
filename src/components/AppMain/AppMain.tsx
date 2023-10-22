@@ -12,7 +12,7 @@ const searchOptions = [
 export const AppMain = () => {
   return (
     <SCSubHeader>
-      <AppHeader headerText="The #1 site real estate professionals trust*" type="h1"/>
+      <AppHeader headerColor="white" headerText="The #1 site real estate professionals trust*" type="h1"/>
       <nav>
         <Link to={'#'} className="navItem">
           Buy

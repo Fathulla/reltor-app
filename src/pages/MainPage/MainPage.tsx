@@ -1,4 +1,3 @@
-import { AppCard } from "../../components/AppCard/AppCard";
 import { AppHeader } from "../../components/AppHeader/AppHeader";
 import { AppMain } from "../../components/AppMain/AppMain";
 import { AppNavigation } from "../../components/AppNavigation/AppNavigation";
@@ -40,7 +39,7 @@ export const MainPage = () => {
       <AppNavigation />
       <AppMain />
       <SCHomeList>
-        <AppHeader type="h2" headerText="Browse homes in West Palm Beach, FL" />
+        <AppHeader type="h2" headerColor="black" headerText="For Sale (West Palm Beach, FL)" />
         {isLoading && <h5>Идет загрузка</h5>}
         {error && <h5>Ошибка</h5>}
         <SCCardsContainer>
