@@ -7,11 +7,8 @@ export const AppNavigation = () => {
     <header>
       <Link className="navItem" to={'main'}><div className="headerLogo">REALTOR APP</div></Link>
       <nav>
-        <Link to={'#'} className="navItem">
-          Buy
-        </Link>
-        <Link to={'#'} className="navItem">
-          Rent
+        <Link to={'/favorites'} className="navItem">
+          Favorites
         </Link>
         <Link to={'/account'} className="navItem">
           Account

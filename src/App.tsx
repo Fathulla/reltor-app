@@ -8,6 +8,8 @@ import "./index.css";
 import { store } from "./store/store.ts";
 import { Provider } from "react-redux";
 import ThankYouPage from "./pages/ThanksPage/ThanksPage.tsx";
+import { FavoritesPage } from "./pages/FavouritesPage/FavouritesPage.tsx";
+import CardInfoPage from "./pages/CardInfoPage/CardInfoPage.tsx";
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -22,6 +24,14 @@ const App: React.FC = () => {
     {
       path: "/account",
       element: <AccountPage />,
+    },
+    {
+      path: "/favorites",
+      element: <FavoritesPage />,
+    },
+    {
+      path: "/card-info",
+      element: <CardInfoPage />,
     },
     {
       path: "*",

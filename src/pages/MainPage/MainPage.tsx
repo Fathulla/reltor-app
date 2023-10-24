@@ -5,7 +5,7 @@ import { HoverCardItem } from "../../components/HoverCard/HoverCardItem";
 import { useGetForSaleQuery } from "../../store/api/propertiesApi";
 import { SCCardsContainer, SCHomeList } from "./MainPage.styled";
 
-interface IData {
+export interface IData {
   location: any;
   description: any;
   baths: number;
@@ -22,6 +22,7 @@ interface IData {
   permalink: string;
   property_id: string;
   primary_photo: string;
+  onAddToFavorites: () => void;
 }
 
 export const MainPage = () => {
@@ -39,7 +40,11 @@ export const MainPage = () => {
       <AppNavigation />
       <AppMain />
       <SCHomeList>
-        <AppHeader type="h2" headerColor="black" headerText="For Sale (West Palm Beach, FL)" />
+        <AppHeader
+          type="h2"
+          headerColor="black"
+          headerText="For Sale"
+        />
         {isLoading && <h5>Идет загрузка</h5>}
         {error && <h5>Ошибка</h5>}
         <SCCardsContainer>
@@ -58,13 +63,11 @@ export const MainPage = () => {
                 status={h.status}
                 list_price={h.list_price}
                 date={h.date}
-                readMore={"Agent"}
+                readMore={"Add to favorites"}
+                property_id={h.property_id}
               />
             ))}
         </SCCardsContainer>
-        <div className="favourites">
-          <AppHeader headerText="Favourites" type="h2" />
-        </div>
       </SCHomeList>
     </>
   );

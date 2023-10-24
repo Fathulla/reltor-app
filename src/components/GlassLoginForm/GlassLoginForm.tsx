@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { IonIcon } from "@ionic/react";
 import "./GlassLoginForm.css";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
-
+import { AppModal } from "../AppModal/AppModal";
 
 interface FormData {
   username: string;
@@ -19,7 +18,9 @@ const FormSchema = yup.object({
 });
 
 export const GlassLoginForm = () => {
-  const navigate = useNavigate()
+  const [modalActive, setModalActive] = useState(false);
+
+  const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm<FormData>({
     resolver: yupResolver(FormSchema),
@@ -29,9 +30,9 @@ export const GlassLoginForm = () => {
     if (data.username === "fathulla" && data.password === "1234") {
       localStorage.setItem("username", data.username);
       localStorage.setItem("password", data.password);
-      navigate('/main')
+      navigate("/main");
     } else {
-      alert("наверный логин и пароль");
+      setModalActive(true);
     }
   };
   return (
@@ -61,13 +62,18 @@ export const GlassLoginForm = () => {
               </div>
               <div className="right">
                 <label>
-                  <a href="#">Forgot Password?</a>
+                  <Link to={"#"}>Forgot Password?</Link>
                 </label>
               </div>
             </div>
           </form>
         </div>
       </div>
+      <AppModal
+        active={modalActive}
+        setActive={setModalActive}
+        modalText="Неверный логин или пароль!"
+      />
     </div>
   );
 };
