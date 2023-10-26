@@ -22,7 +22,6 @@ export interface IData {
   permalink: string;
   property_id: string;
   primary_photo: string;
-  onAddToFavorites: () => void;
 }
 
 export const MainPage = () => {

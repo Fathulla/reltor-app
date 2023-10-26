@@ -1,11 +1,13 @@
 import React from "react";
 import { Carousel } from "antd";
 
+// const img = '../../assets/img/card-img6.jpg'
 
 const contentStyle: React.CSSProperties = {
   width: "60vw",
-  height: "60vh",
+  height: "86vh",
   background: "#364d79",
+  // background: `${img}`
 };
 
 export const AppCarousel = () => (
