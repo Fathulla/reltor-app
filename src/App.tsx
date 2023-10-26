@@ -8,7 +8,7 @@ import { store } from "./store/store.ts";
 import { Provider } from "react-redux";
 import ThankYouPage from "./pages/ThanksPage/ThanksPage.tsx";
 import { FavoritesPage } from "./pages/FavouritesPage/FavouritesPage.tsx";
-import {CardInfoPage} from "./pages/CardInfoPage/CardInfoPage.tsx";
+import { CardInfoPage } from "./pages/CardInfoPage/CardInfoPage.tsx";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -41,6 +41,7 @@ const App = () => {
       element: <ThankYouPage />,
     },
   ]);
+
   return (
     <Provider store={store}>
       <RouterProvider router={router} />

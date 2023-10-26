@@ -1,25 +1,38 @@
-import React from "react";
+import { useLocation } from "react-router";
 import { AppInfoCard } from "../../components/AppInfoCard/AppInfoCard";
 import { useGetDetailsQuery } from "../../store/api/propertiesApi";
 
-
+// interface ICardInfoPageProps {
+//   property_id: string;
+// }
 
 export const CardInfoPage = () => {
-  const { data, isLoading, error } = useGetDetailsQuery({
-    property_id: '1231321',
-  });
-  if(data) {
-    console.log(data);
-  }
-  if(isLoading) {
-    console.log(isLoading);
-  }
-  if(error) {
-    console.log(error);
-  }
-  
+  const location = useLocation();
+
+  const { data, isLoading, error } = useGetDetailsQuery(
+    location.state.property_id
+  );
+
+  // if (data) {
+  //   console.log("PROPERTY DATA", data);
+  // }
+
+  const { home } = data;
+
+  console.log("HOME", home)
+
+  // if (isLoading) {
+  //   console.log(isLoading);
+  // }
+
+  // if (error) {
+  //   console.log(error);
+  // }
+
   return (
-    <div>
+    <>
+      {isLoading && <h5>Идет загрузка</h5>}
+      {error && <h5>Ошибка</h5>}
       <AppInfoCard
         list_price={0}
         schools={0}
@@ -37,6 +50,6 @@ export const CardInfoPage = () => {
         street_name={""}
         street_number={""}
       />
-    </div>
+    </>
   );
 };
