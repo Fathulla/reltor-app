@@ -1,4 +1,3 @@
-import React from "react";
 import { AccountPage } from "./pages/AccountPage/AccountPage.tsx";
 import { MainPage } from "./pages/MainPage/MainPage.tsx";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
@@ -9,9 +8,9 @@ import { store } from "./store/store.ts";
 import { Provider } from "react-redux";
 import ThankYouPage from "./pages/ThanksPage/ThanksPage.tsx";
 import { FavoritesPage } from "./pages/FavouritesPage/FavouritesPage.tsx";
-import CardInfoPage from "./pages/CardInfoPage/CardInfoPage.tsx";
+import {CardInfoPage} from "./pages/CardInfoPage/CardInfoPage.tsx";
 
-const App: React.FC = () => {
+const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",

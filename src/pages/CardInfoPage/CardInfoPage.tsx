@@ -1,80 +1,42 @@
 import React from "react";
-import { AppCarousel } from "../../components/AppCarousel/AppCarousel";
-import { AppNavigation } from "../../components/AppNavigation/AppNavigation";
-import "./CardInfoPage.css";
+import { AppInfoCard } from "../../components/AppInfoCard/AppInfoCard";
+import { useGetDetailsQuery } from "../../store/api/propertiesApi";
 
-interface ICardInfoPage {
-  list_price: number;
-  schools: number;
 
-  //! description
-  year_built: number;
-  beds: number;
-  baths: number;
-  sqft: number;
-  text: string;
 
-  //! address
-  city: string;
-  country: string;
-  line: string;
-  postal_code: string;
-  state: string;
-  state_code: string;
-  street_name: string;
-  street_number: string;
-}
-
-const CardInfoPage = ({
-  list_price,
-  schools,
-  year_built,
-  beds,
-  baths,
-  sqft,
-  text,
-  city,
-  country,
-  line,
-  postal_code,
-  state,
-  state_code,
-  street_name,
-  street_number,
-}: ICardInfoPage) => {
+export const CardInfoPage = () => {
+  const { data, isLoading, error } = useGetDetailsQuery({
+    property_id: '1231321',
+  });
+  if(data) {
+    console.log(data);
+  }
+  if(isLoading) {
+    console.log(isLoading);
+  }
+  if(error) {
+    console.log(error);
+  }
+  
   return (
     <div>
-      <AppNavigation />
-      <div className="card_info_content">
-        <AppCarousel />
-        <div className="card_info_details">
-          <h5>Details</h5>
-          <div>
-            Cost:{list_price} <br /> Year built:{year_built}
-          </div>
-          <div className="description">
-            <div>
-              Beds:{beds} <br />
-              Baths:{baths} <br />
-              Sqft:{sqft} <br />
-            </div>
-            <div>
-              address:{city}
-              {country}
-              {line}
-              {state}
-              {postal_code}
-              {state_code}
-              {street_name}
-              {street_number}
-              <br /> schools:{schools}
-            </div>
-          </div>
-          <div className="about_house">Text:{text}</div>
-        </div>
-      </div>
+      <AppInfoCard
+        list_price={0}
+        schools={0}
+        year_built={0}
+        beds={0}
+        baths={0}
+        sqft={0}
+        text={""}
+        city={""}
+        country={""}
+        line={""}
+        postal_code={""}
+        state={""}
+        state_code={""}
+        street_name={""}
+        street_number={""}
+      />
     </div>
   );
 };
-
-export default CardInfoPage;

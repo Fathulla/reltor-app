@@ -41,10 +41,10 @@ export const propertiesApi = createApi({
         }),
         getDetails: builder.query<IDetailsResponse, IDetailsPayload>({
             //! Returning by 10 items
-            query: ({ property_id }) => ({
+            query: (id) => ({
                 url: '/property',
                 params: {
-                    property_id,
+                    property_id: id,
                 }
             })
         })

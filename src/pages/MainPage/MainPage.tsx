@@ -5,6 +5,7 @@ import { HoverCardItem } from "../../components/HoverCard/HoverCardItem";
 import { useGetForSaleQuery } from "../../store/api/propertiesApi";
 import { SCCardsContainer, SCHomeList } from "./MainPage.styled";
 
+
 export interface IData {
   location: any;
   description: any;

@@ -36,7 +36,7 @@ export const HoverCardItem = ({
   const [modalActive, setModalActive] = useState(false);
 
   return (
-    <div className="content-wrapper">
+    <div className="content-wrapper" >
       <div className="news-card">
         <Link to={"/card-info"} className="news-card__card-link"></Link>
         <img src={imgLink.href} alt="" className="news-card__image" />
