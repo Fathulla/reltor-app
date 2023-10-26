@@ -1,57 +1,49 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { baseQuery, xHost, xKey } from '../../utils/baseQuery';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IData } from "../../pages/MainPage/MainPage";
+import { baseQuery, xHost, xKey } from "../../utils/baseQuery";
 
-interface IForSalePayload {
-    property_id: string
-    limit: number
-    location: string
-    type: 'single_family'
+interface IHomeSearch {
+  results: IData[];
 }
 
-
-interface IForSaleResponse extends IForSalePayload { }
-
-interface IDetailsPayload {
-    property_id: string
+interface IForSaleResponse {
+  home_search: IHomeSearch;
 }
 
-interface IDetailsResponse extends IDetailsPayload { }
+interface IDetailsResponse {
+  home: any;
+}
 
 export const propertiesApi = createApi({
-    reducerPath: 'propertiesApi',
-    baseQuery: fetchBaseQuery({
-        baseUrl: baseQuery, prepareHeaders: (headers) => {
-            headers.set("x-rapidapi-key", xKey)
-            headers.set("x-rapidapi-host", xHost)
-            return headers
-        }
+  reducerPath: "propertiesApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: baseQuery,
+    prepareHeaders: (headers) => {
+      headers.set("x-rapidapi-key", xKey);
+      headers.set("x-rapidapi-host", xHost);
+      return headers;
+    },
+  }),
+  endpoints: (builder) => ({
+    getForSale: builder.query<IForSaleResponse, string>({
+      //! Returning by 50 items
+      query: (location = "santa monica") => ({
+        url: "/forsale",
+        params: {
+          location,
+        },
+      }),
     }),
-    endpoints: (builder) => ({
-        getForSale: builder.query<IForSaleResponse, IForSalePayload>({
-            //! Returning by 50 items
-            query: ({ property_id, limit, location, type }) => ({
-                url: '/forsale',
-                params: {
-                    property_id,
-                    limit,
-                    location,
-                    type,
-                }
-            })
-        }),
-        getDetails: builder.query<IDetailsResponse, IDetailsPayload>({
-            //! Returning by 10 items
-            query: (id) => ({
-                url: '/property',
-                params: {
-                    property_id: id,
-                }
-            })
-        })
-    })
-})
+    getDetails: builder.query<IDetailsResponse, string>({
+      //! Returning by 10 items
+      query: (id) => ({
+        url: "/property",
+        params: {
+          property_id: id,
+        },
+      }),
+    }),
+  }),
+});
 
-export const {
-    useGetForSaleQuery,
-    useGetDetailsQuery,
-} = propertiesApi;
+export const { useGetForSaleQuery, useGetDetailsQuery } = propertiesApi;

@@ -3,7 +3,7 @@ import "./HoverCard.css";
 import { useState } from "react";
 import { AppModal } from "../AppModal/AppModal";
 
-interface IHoverCardItem {
+export interface IHoverCardItem {
   status: string;
   date: string;
   readMore: string;
@@ -17,6 +17,7 @@ interface IHoverCardItem {
   postal_code: string;
   state_code: string;
   property_id: string;
+  clickHandler: () => void;
 }
 
 export const HoverCardItem = ({
@@ -32,11 +33,12 @@ export const HoverCardItem = ({
   postal_code,
   state_code,
   property_id,
+  clickHandler,
 }: IHoverCardItem) => {
   const [modalActive, setModalActive] = useState(false);
 
   return (
-    <div className="content-wrapper" >
+    <div className="content-wrapper" onClick={clickHandler}>
       <div className="news-card">
         <Link to={"/card-info"} className="news-card__card-link"></Link>
         <img src={imgLink.href} alt="" className="news-card__image" />
@@ -56,7 +58,11 @@ export const HoverCardItem = ({
             <p className="news-card__excerpt">
               Location: {city}, {line}, {state_code} {postal_code}
             </p>
-            <Link onClick={() => setModalActive(true)} to={"#"} className="news-card__read-more">
+            <Link
+              onClick={() => setModalActive(true)}
+              to={"#"}
+              className="news-card__read-more"
+            >
               {readMore}
               <i className="fas fa-long-arrow-alt-right"></i>
             </Link>
