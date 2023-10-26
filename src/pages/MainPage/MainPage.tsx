@@ -1,10 +1,10 @@
+import { useNavigate } from "react-router";
 import { AppHeader } from "../../components/AppHeader/AppHeader";
 import { AppMain } from "../../components/AppMain/AppMain";
 import { AppNavigation } from "../../components/AppNavigation/AppNavigation";
 import { HoverCardItem } from "../../components/HoverCard/HoverCardItem";
 import { useGetForSaleQuery } from "../../store/api/propertiesApi";
 import { SCCardsContainer, SCHomeList } from "./MainPage.styled";
-
 
 export interface IData {
   location: any;
@@ -26,25 +26,17 @@ export interface IData {
 }
 
 export const MainPage = () => {
-  const { data, isLoading, error } = useGetForSaleQuery({
-    property_id: "",
-    limit: 1,
-    location: "santa monica",
-    type: "single_family",
-  });
+  const navigate = useNavigate();
+  const { data, isLoading, error } = useGetForSaleQuery("santa monica");
 
-  const homes: IData[] = data?.home_search.results;
+  const homes = data?.home_search.results;
 
   return (
     <>
       <AppNavigation />
       <AppMain />
       <SCHomeList>
-        <AppHeader
-          type="h2"
-          headerColor="black"
-          headerText="For Sale"
-        />
+        <AppHeader type="h2" headerColor="black" headerText="For Sale" />
         {isLoading && <h5>Идет загрузка</h5>}
         {error && <h5>Ошибка</h5>}
         <SCCardsContainer>
@@ -65,6 +57,11 @@ export const MainPage = () => {
                 date={h.date}
                 readMore={"Add to favorites"}
                 property_id={h.property_id}
+                clickHandler={() =>
+                  navigate("/card-info", {
+                    state: { property_id: h.property_id },
+                  })
+                }
               />
             ))}
         </SCCardsContainer>
