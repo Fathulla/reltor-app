@@ -1,19 +1,16 @@
 import React from "react";
 import { Carousel } from "antd";
 
-// const img = '../../assets/img/card-img6.jpg'
-
 const contentStyle: React.CSSProperties = {
   width: "60vw",
   height: "86vh",
   background: "#364d79",
-  // background: `${img}`
 };
 
 export const AppCarousel = () => (
-  <Carousel  dotPosition='left' autoplay effect="fade">
+  <Carousel dotPosition="left" autoplay effect="fade">
     <div>
-        <img style={contentStyle} src="../../assets/img/card-img6.jpg" alt="" />
+      <img style={contentStyle} src="../../assets/img/card-img6.jpg" alt="" />
     </div>
     <div>
       <h3 style={contentStyle}>2</h3>

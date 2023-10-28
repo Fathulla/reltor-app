@@ -58,14 +58,14 @@ export const HoverCardItem = ({
             <p className="news-card__excerpt">
               Location: {city}, {line}, {state_code} {postal_code}
             </p>
-            <Link
+            <button
               onClick={() => setModalActive(true)}
-              to={"#"}
               className="news-card__read-more"
             >
+             
               {readMore}
               <i className="fas fa-long-arrow-alt-right"></i>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

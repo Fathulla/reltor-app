@@ -5,7 +5,7 @@ import "./AppCardInfo.css";
 
 
 
-interface ICardInfoPage {
+export interface ICardInfoPage {
   list_price: number;
   schools: number;
 
@@ -52,27 +52,31 @@ export const AppInfoCard = ({
         <div className="card_info_details">
           <h5>Details</h5>
           <div>
-            Cost:{list_price} <br /> Year built:{year_built}
+            Cost:$ {list_price} <br /> 
+            Year built: {year_built}
           </div>
           <div className="description">
             <div>
-              Beds:{beds} <br />
-              Baths:{baths} <br />
-              Sqft:{sqft} <br />
+              Beds: {beds} <br />
+              Baths: {baths} <br />
+              Sqft: {sqft} <br />
+              Near schools: {schools} <br />
+              Address: 
+              {city},
+              {country},
+              {line},
+              {state},
+              {postal_code},
+              {state_code},
+              {street_name},
+              {street_number}
             </div>
             <div>
-              address:{city}
-              {country}
-              {line}
-              {state}
-              {postal_code}
-              {state_code}
-              {street_name}
-              {street_number}
-              <br /> schools:{schools}
+              
+              <br /><br /> 
             </div>
           </div>
-          <div className="about_house">Text:{text}</div>
+          <div className="about_house">{text}</div>
         </div>
       </div>
     </div>
