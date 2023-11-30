@@ -34,6 +34,8 @@ export const propertiesApi = createApi({
         },
       }),
     }),
+
+    
     getDetails: builder.query<IDetailsResponse, string>({
       //! Returning by 10 items
       query: (id) => ({
